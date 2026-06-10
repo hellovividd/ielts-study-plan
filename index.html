@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思备考计划 · 6个月冲刺7.0</title>
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: #f0f2f5;
+  color: #2c3e50;
+  line-height: 1.7;
+  padding-bottom: 4rem;
+}
+
+/* ===== Color Variables ===== */
+:root {
+  --primary: #1a237e;
+  --primary-light: #3949ab;
+  --accent: #f5a623;
+  --accent-light: #ffd54f;
+  --success: #27ae60;
+  --warning: #e67e22;
+  --danger: #e74c3c;
+  --bg: #f0f2f5;
+  --card: #fff;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --border: #e0e0e0;
+  --shadow: 0 2px 12px rgba(0,0,0,.08);
+  --radius: 12px;
+}
+body.dark {
+  --bg: #1a1a2e;
+  --card: #16213e;
+  --text: #e0e0e0;
+  --text-light: #aaa;
+  --border: #333;
+  --shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+
+body { background: var(--bg); color: var(--text); }
+
+/* ===== Navbar ===== */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--primary);
+  color: #fff;
+  padding: 0 1.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.navbar a {
+  color: rgba(255,255,255,.85); text-decoration: none;
+  padding: 0.75rem 0.9rem; font-size: 0.85rem; white-space: nowrap;
+  border-bottom: 2px solid transparent; transition: all .2s;
+  cursor: pointer;
+}
+.navbar a:hover, .navbar a.active { color: var(--accent-light); border-bottom-color: var(--accent-light); }
+.navbar .theme-btn {
+  margin-left: auto; background: none; border: 1px solid rgba(255,255,255,.4); color: #fff;
+  padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
+  white-space: nowrap; transition: all .2s;
+}
+.navbar .theme-btn:hover { background: rgba(255,255,255,.15); }
+
+/* ===== Container ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #283593 50%, #1a237e 100%);
+  color: #fff; text-align: center; padding: 3rem 2rem; border-radius: var(--radius);
+  margin-bottom: 2rem; position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; top: -50%; right: -10%;
+  width: 300px; height: 300px; background: rgba(255,255,255,.04); border-radius: 50%;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 800; position: relative; z-index: 1; }
+.hero .subtitle { font-size: 1.1rem; opacity: .9; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+.goal-cards {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.goal-card {
+  background: rgba(255,255,255,.15); backdrop-filter: blur(10px);
+  border-radius: 10px; padding: 1rem 1.5rem; text-align: center; min-width: 120px;
+}
+.goal-card .label { font-size: 0.75rem; opacity: .8; text-transform: uppercase; letter-spacing: 1px; }
+.goal-card .value { font-size: 1.5rem; font-weight: 700; margin-top: 0.25rem; }
+.goal-card .arrow { color: var(--accent-light); font-size: 1.3rem; }
+
+/* ===== Section Headers ===== */
+.section-title {
+  font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1.2rem;
+  padding-bottom: 0.5rem; border-bottom: 3px solid var(--primary);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.section-title .icon { font-size: 1.4rem; }
+
+/* ===== Phase Cards ===== */
+.phase-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.2rem; margin-bottom: 2rem;
+}
+.phase-card {
+  background: var(--card); border-radius: var(--radius); padding: 1.5rem;
+  box-shadow: var(--shadow); border-left: 4px solid var(--primary);
+  transition: transform .2s;
+}
+.phase-card:hover { transform: translateY(-2px); }
+.phase-card:nth-child(2) { border-left-color: var(--accent); }
+.phase-card:nth-child(3) { border-left-color: var(--success); }
+.phase-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.phase-card .phase-tag {
+  display: inline-block; background: var(--primary); color: #fff;
+  padding: 0.15rem 0.6rem; border-radius: 4px; font-size: 0.75rem; margin-bottom: 0.8rem;
+}
+.phase-card:nth-child(2) .phase-tag { background: var(--accent); }
+.phase-card:nth-child(3) .phase-tag { background: var(--success); }
+.phase-card ul { list-style: none; padding: 0; }
+.phase-card li { padding: 0.25rem 0; font-size: 0.9rem; }
+.phase-card li::before { content: '✓ '; color: var(--success); font-weight: 700; }
+
+/* ===== Daily Timetable ===== */
+.timetable {
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden; margin-bottom: 2rem;
+}
+.timetable h3 { padding: 1.2rem 1.5rem; background: var(--primary); color: #fff; margin: 0; }
+.timetable table { width: 100%; border-collapse: collapse; }
+.timetable th, .timetable td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+.timetable th { background: #f8f9fa; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+body.dark .timetable th { background: #1a1a2e; }
+.timetable .time-block { font-weight: 600; color: var(--primary); white-space: nowrap; }
+.timetable .task-desc { font-size: 0.9rem; }
+.timetable .tag {
+  display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+  font-size: 0.7rem; font-weight: 600;
+}
+.tag-l { background: #e3f2fd; color: #1565c0; }
+.tag-r { background: #e8f5e9; color: #2e7d32; }
+.tag-w { background: #fff3e0; color: #e65100; }
+.tag-s { background: #fce4ec; color: #c62828; }
+.tag-all { background: #f3e5f5; color: #6a1b9a; }
+
+/* ===== Monthly Plan Accordion ===== */
+.accordion { margin-bottom: 2rem; }
+.accordion-item {
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  margin-bottom: 0.8rem; overflow: hidden;
+}
+.accordion-header {
+  padding: 1.2rem 1.5rem; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; user-select: none; transition: background .2s;
+}
+.accordion-header:hover { background: rgba(0,0,0,.02); }
+.accordion-header h3 { font-size: 1.1rem; display: flex; align-items: center; gap: 0.6rem; }
+.accordion-header .month-badge {
+  display: inline-block; background: var(--primary); color: #fff;
+  padding: 0.2rem 0.7rem; border-radius: 4px; font-size: 0.75rem;
+}
+.accordion-header .arrow { transition: transform .3s; font-size: 0.8rem; color: var(--text-light); }
+.accordion-item.open .accordion-header .arrow { transform: rotate(180deg); }
+.accordion-body { display: none; padding: 0 1.5rem 1.5rem; }
+.accordion-item.open .accordion-body { display: block; }
+
+.week-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem; margin: 1rem 0;
+}
+.week-card {
+  background: var(--bg); border-radius: 8px; padding: 1rem;
+  border: 1px solid var(--border);
+}
+.week-card h4 { font-size: 0.95rem; margin-bottom: 0.6rem; color: var(--primary); }
+.week-card table { width: 100%; font-size: 0.8rem; }
+.week-card th { text-align: left; padding: 0.25rem 0.3rem; border-bottom: 1px solid var(--border); font-size: 0.7rem; color: var(--text-light); }
+.week-card td { padding: 0.25rem 0.3rem; border-bottom: 1px solid var(--border); font-size: 0.78rem; vertical-align: top; }
+
+/* ===== Tabs for Skills ===== */
+.skills-container { margin-bottom: 2rem; }
+.skill-tabs {
+  display: flex; gap: 0; flex-wrap: wrap;
+  background: var(--card); border-radius: var(--radius) var(--radius) 0 0; overflow: hidden;
+}
+.skill-tab {
+  flex: 1; min-width: 100px; padding: 0.8rem 1rem; text-align: center; cursor: pointer;
+  border: none; background: var(--card); font-size: 0.9rem; font-weight: 600;
+  transition: all .2s; border-bottom: 3px solid transparent; color: var(--text-light);
+}
+.skill-tab:hover { color: var(--text); }
+.skill-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+.skill-panel {
+  display: none; background: var(--card); padding: 1.5rem;
+  border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow);
+}
+.skill-panel.active { display: block; }
+.skill-panel h4 { margin-bottom: 1rem; color: var(--primary); }
+.skill-panel ol, .skill-panel ul { padding-left: 1.2rem; }
+.skill-panel li { margin-bottom: 0.4rem; }
+
+/* ===== Resource Table ===== */
+.resource-table {
+  width: 100%; border-collapse: collapse; background: var(--card);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.resource-table th, .resource-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+.resource-table th { background: var(--primary); color: #fff; font-size: 0.8rem; text-transform: uppercase; }
+.resource-table tr:hover td { background: rgba(0,0,0,.02); }
+.resource-table .stars { color: var(--accent); }
+
+/* ===== Progress Tracker ===== */
+.progress-section {
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 1.5rem; margin-bottom: 2rem;
+}
+.progress-bar-wrap {
+  background: var(--border); border-radius: 10px; height: 20px; margin: 0.8rem 0 1.5rem;
+  overflow: hidden;
+}
+.progress-bar-inner {
+  height: 100%; background: linear-gradient(90deg, var(--primary), var(--success));
+  border-radius: 10px; transition: width .5s; width: 0%;
+}
+.progress-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.progress-stat { text-align: center; }
+.progress-stat .num { font-size: 2rem; font-weight: 700; color: var(--primary); }
+.progress-stat .label { font-size: 0.75rem; color: var(--text-light); }
+.task-checklist { list-style: none; }
+.task-checklist li {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border); font-size: 0.9rem;
+}
+.task-checklist input[type="checkbox"] {
+  width: 18px; height: 18px; cursor: pointer; accent-color: var(--success);
+}
+.task-checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--text-light); }
+.reset-btn {
+  margin-top: 1rem; padding: 0.5rem 1rem; background: var(--danger); color: #fff;
+  border: none; border-radius: 6px; cursor: pointer; font-size: 0.8rem;
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed; bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary); color: #fff; border: none; cursor: pointer;
+  font-size: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  display: none; align-items: center; justify-content: center; z-index: 50;
+  transition: all .3s;
+}
+.back-to-top.visible { display: flex; }
+.back-to-top:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+/* ===== Milestone Checkpoints ===== */
+.milestone-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem; margin: 1.5rem 0;
+}
+.milestone {
+  background: var(--card); border-radius: var(--radius); padding: 1rem 1.2rem;
+  box-shadow: var(--shadow); display: flex; align-items: center; gap: 0.8rem;
+  border: 1px solid var(--border);
+}
+.milestone .dot {
+  width: 14px; height: 14px; border-radius: 50%; background: var(--primary);
+  flex-shrink: 0;
+}
+.milestone.done .dot { background: var(--success); }
+.milestone.done .dot::after { content: '✓'; color: #fff; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; height: 100%; }
+
+/* ===== Print ===== */
+@media print {
+  .navbar, .back-to-top, .progress-section, .theme-btn { display: none !important; }
+  body { font-size: 12px; color: #000; background: #fff; }
+  .container { max-width: 100%; padding: 0; }
+  .accordion-item.open .accordion-body { display: block !important; }
+  .accordion-body { display: block !important; }
+  .phase-card, .week-card, .accordion-item { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  .hero { background: none !important; color: #000 !important; border: 2px solid #000; }
+  .hero * { color: #000 !important; }
+  .goal-card { background: #f0f0f0; }
+  @page { margin: 1cm; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.5rem; }
+  .hero { padding: 2rem 1rem; }
+  .container { padding: 1rem; }
+  .phase-grid { grid-template-columns: 1fr; }
+  .week-grid { grid-template-columns: 1fr; }
+  .skill-tab { font-size: 0.75rem; padding: 0.5rem; }
+  .timetable table { font-size: 0.75rem; }
+  .timetable th, .timetable td { padding: 0.4rem 0.5rem; }
+}
+
+/* ===== Motivational Banner ===== */
+.motivation {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  border-radius: var(--radius); padding: 1.5rem; text-align: center;
+  color: #333; margin-bottom: 2rem; font-weight: 600;
+}
+.motivation .quote { font-size: 1.1rem; font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar" id="navbar">
+  <a href="#hero" class="active">🏠 首页</a>
+  <a href="#phases">📋 三阶段</a>
+  <a href="#timetable">⏰ 每日时间表</a>
+  <a href="#monthly">📅 月度计划</a>
+  <a href="#skills">🎯 分科方法</a>
+  <a href="#resources">📚 资源</a>
+  <a href="#progress">✅ 进度</a>
+  <button class="theme-btn" onclick="toggleTheme()" title="切换暗色模式">🌙</button>
+</nav>
+
+<div class="container">
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <h1>📖 雅思备考系统计划</h1>
+  <p class="subtitle">Academic · 目标 7.0 · 6 个月科学备考 · 每日行动指南</p>
+  <div class="goal-cards">
+    <div class="goal-card">
+      <div class="label">起点</div>
+      <div class="value">CET-6</div>
+    </div>
+    <div class="goal-card">
+      <div class="arrow">→</div>
+    </div>
+    <div class="goal-card">
+      <div class="label">目标分数</div>
+      <div class="value">🎯 7.0</div>
+    </div>
+    <div class="goal-card">
+      <div class="label">备考周期</div>
+      <div class="value">6 个月</div>
+    </div>
+    <div class="goal-card">
+      <div class="label">考试类型</div>
+      <div class="value">Academic</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Motivation ===== -->
+<div class="motivation">
+  <p class="quote">"The secret of getting ahead is getting started. —— 每天坚持 3 小时，6 个月后你会感谢今天的自己。"</p>
+</div>
+
+<!-- ===== Three Phases ===== -->
+<h2 class="section-title" id="phases"><span class="icon">📋</span> 三阶段备考总览</h2>
+<div class="phase-grid">
+  <div class="phase-card">
+    <span class="phase-tag">第 1-2 个月</span>
+    <h3>🔵 阶段一：基础夯实</h3>
+    <ul>
+      <li>词汇量从 6000 → 8000+，每天背 50 新词</li>
+      <li>系统复习语法：从句 + 复杂句写作</li>
+      <li>熟悉雅思四大题型和评分标准</li>
+      <li>听力 Section 1-2 精听，1.0x → 1.2x 速度</li>
+      <li>阅读限时 25 分钟/篇，学习平行阅读法</li>
+      <li>写作看 Simon 视频，掌握 Task 1 模板</li>
+      <li>口语准备 Part 1 核心话题 30 个</li>
+      <li>完成 1 套真题摸底测试</li>
+    </ul>
+  </div>
+  <div class="phase-card">
+    <span class="phase-tag">第 3-4 个月</span>
+    <h3>🟠 阶段二：技巧强化</h3>
+    <ul>
+      <li>听力 Section 3-4 逐句听写训练</li>
+      <li>阅读 3 篇/天，严格 60 分钟限时</li>
+      <li>Task 1：掌握 4 类图表 + 核心句型 20 句</li>
+      <li>Task 2：学习 4 段式结构，按 10 大话题积累素材</li>
+      <li>口语 Part 2 故事模板 4 类各 2 个</li>
+      <li>口语录音自纠 + 找陪练 (italki/Cambly)</li>
+      <li>每两周 1 次全科模拟</li>
+      <li>听力 + 阅读目标稳定 6.5+</li>
+    </ul>
+  </div>
+  <div class="phase-card">
+    <span class="phase-tag">第 5-6 个月</span>
+    <h3>🟢 阶段三：冲刺模拟</h3>
+    <ul>
+      <li>每周 2 次完整全科模拟（严格 2h40m）</li>
+      <li>使用剑桥 16-19 最新真题</li>
+      <li>错题本分析 + 弱项加倍训练</li>
+      <li>写作专业批改 ≥ 3 篇大作文</li>
+      <li>口语刷完当季题库 2 遍</li>
+      <li>考前 2 周调整作息匹配考试</li>
+      <li>目标：L 7.0 / R 7.5 / W 6.5+ / S 7.0</li>
+      <li>考前 1 天休息，保持心态</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== Milestones ===== -->
+<h2 class="section-title"><span class="icon">🏁</span> 关键里程碑</h2>
+<div class="milestone-grid">
+  <div class="milestone"><span class="dot"></span> 第 1 月：完成摸底测试，熟悉全部题型</div>
+  <div class="milestone"><span class="dot"></span> 第 2 月：词汇量达标 8000，听力 1.2x 无障碍</div>
+  <div class="milestone"><span class="dot"></span> 第 3 月：听力+阅读稳定 6.5，写作框架熟练</div>
+  <div class="milestone"><span class="dot"></span> 第 4 月：首次全科模考 ≥ 6.5，确定考试日期</div>
+  <div class="milestone"><span class="dot"></span> 第 5 月：模考分数稳定 7.0，弱项专项突破</div>
+  <div class="milestone"><span class="dot"></span> 第 6 月：考前状态调整，自信上考场 🎯</div>
+</div>
+
+<!-- ===== Weekly Rotation Overview ===== -->
+<h2 class="section-title" id="timetable"><span class="icon">🔄</span> 每周轮换节奏总览</h2>
+<p style="margin-bottom:1rem;color:var(--text-light);">核心原则：<strong>每天主打 1-2 科深度学习（90-120 分钟），其他科目只做轻量保持或不做</strong>。每科每周有 2 次深度训练 + 1 次模考实战，效率远超每天四科蜻蜓点水。</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.8rem;margin-bottom:2rem;">
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #1565c0;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周一</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">听力日</div>
+    <div style="font-size:0.78rem;">🎧 主打：听力深度<br>🗣️ 附：口语 20min</div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #2e7d32;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周二</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">阅读日</div>
+    <div style="font-size:0.78rem;">📖 主打：阅读深度<br>✍️ 附：写作积累</div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #e65100;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周三</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">写作日</div>
+    <div style="font-size:0.78rem;">✍️ 主打：写作深度<br>🎧 附：泛听保持</div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #c62828;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周四</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">口语日</div>
+    <div style="font-size:0.78rem;">🗣️ 主打：口语深度<br>📖 附：阅读 1 篇</div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #6a1b9a;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周五</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">综合/弱项日</div>
+    <div style="font-size:0.78rem;">🎯 主打：听力+阅读联训<br>🔧 或：本周最弱项突破</div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #f5a623;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周六</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">模考日</div>
+    <div style="font-size:0.78rem;">📊 全科模考 2.5h<br>📝 深度复盘 2h</div>
+  </div>
+  <div style="background:var(--card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);text-align:center;border-top:4px solid #27ae60;">
+    <div style="font-weight:700;font-size:1rem;margin-bottom:0.3rem;">📅 周日</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">弹性日</div>
+    <div style="font-size:0.78rem;">🧘 休息/轻松输入<br>📋 周计划+查漏补缺</div>
+  </div>
+</div>
+
+<!-- ===== Daily Timetable ===== -->
+<h2><span class="icon" style="font-size:1.2rem;">⏰</span> 每日详细时间表（3-4 小时版）</h2>
+<p style="margin-bottom:1rem;color:var(--text-light);">每天分为三个时段：<strong>早晨基础段（每天一样）、上午主打段（按星期轮换）、晚间复盘段（每天一样）</strong>。按今天的星期查看对应安排 👇</p>
+
+<div class="timetable">
+  <h3>🌅 早晨基础段 · 每天相同（7:00-8:30，约 1.5h）</h3>
+  <table>
+    <thead><tr><th>时间</th><th>任务</th><th>具体内容</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="time-block">7:00-7:30</td>
+        <td class="task-desc">🔄 词汇唤醒</td>
+        <td>墨墨背单词 App，复习旧词 + 新词 50 个，大声朗读例句</td>
+      </tr>
+      <tr>
+        <td class="time-block">7:30-8:00</td>
+        <td class="task-desc">🎧 耳朵预热</td>
+        <td>BBC 6 Minute English / TED-Ed 短片，不暂停泛听</td>
+      </tr>
+      <tr>
+        <td class="time-block">8:00-8:30</td>
+        <td class="task-desc">📝 语法小练</td>
+        <td>《剑桥雅思语法》1 单元（15min）+ 整理昨日生词到 Anki（15min）</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="timetable">
+  <h3 id="focusBlockTitle">🎯 上午主打段 · 今天是 <span id="todayName" style="color:var(--accent);">---</span>（9:00-11:30，约 2h）</h3>
+  <table>
+    <thead><tr><th>星期</th><th>主打科目</th><th>深度训练内容（120 分钟）</th><th>附科目（20-30min）</th></tr></thead>
+    <tbody>
+      <tr id="row-mon"><td>周一</td><td><span class="tag tag-l">🎧 听力</span></td><td>剑桥真题 1 个 Section 逐句精听（60min）+ 同题型 2 篇泛听+做题（40min）+ 错题分析（20min）</td><td>🗣️ 口语自练 20min</td></tr>
+      <tr id="row-tue"><td>周二</td><td><span class="tag tag-r">📖 阅读</span></td><td>剑桥真题 2 篇限时精做（40min）+ 精读解析（40min）+ 定位技巧专项训练（40min）</td><td>✍️ 看外刊积累句式 30min</td></tr>
+      <tr id="row-wed"><td>周三</td><td><span class="tag tag-w">✍️ 写作</span></td><td>Task 1 或 Task 2 真题写作 1 篇（40min）+ 对照范文修改（40min）+ 话题观点素材整理（40min）</td><td>🎧 BBC 泛听保持 20min</td></tr>
+      <tr id="row-thu"><td>周四</td><td><span class="tag tag-s">🗣️ 口语</span></td><td>Part 2 话题卡练习 × 3 个（60min，每个录音+回听）+ Part 3 深度讨论自练（40min）+ 发音纠正（20min）</td><td>📖 阅读 1 篇限时 20min</td></tr>
+      <tr id="row-fri"><td>周五</td><td><span class="tag tag-all">🎯 综合/弱项</span></td><td>听力+阅读联训 1 套（90min，限时全真）+ 本周最弱科目专项突破（30min）</td><td>🔧 错题本回顾 20min</td></tr>
+      <tr id="row-sat"><td>周六</td><td><span class="tag tag-all">📊 全科模考</span></td><td>听力 30min + 阅读 60min + 写作 60min（9:00-11:30 全真模拟）</td><td>🗣️ 下午口语模考 15min</td></tr>
+      <tr id="row-sun"><td>周日</td><td><span class="tag tag-all">🧘 弹性休息</span></td><td>本周未完成内容补做 + 轻松输入（纪录片/播客/英剧）</td><td>📋 写下周计划 30min</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="timetable">
+  <h3>🌙 晚间复盘段 · 每天相同（19:30-20:45，约 1h）</h3>
+  <table>
+    <thead><tr><th>时间</th><th>任务</th><th>具体内容</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="time-block">19:30-20:00</td>
+        <td class="task-desc">🔁 当日复习</td>
+        <td>快速浏览今日错题和生词（15min）+ 阅读外刊 1 篇 800 词（15min）</td>
+      </tr>
+      <tr>
+        <td class="time-block">20:00-20:30</td>
+        <td class="task-desc">✍️ 写作或口语</td>
+        <td>写作日：整理素材 / 口语日：录音练习 / 其他日：选弱项加练</td>
+      </tr>
+      <tr>
+        <td class="time-block">20:30-20:45</td>
+        <td class="task-desc">📋 学习日志</td>
+        <td>写 3 句话：今天学了什么？哪里不足？明天重点是什么？</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="timetable">
+  <h3>📅 周六 · 模拟测试日</h3>
+  <table>
+    <thead>
+      <tr><th>时间</th><th>任务</th><th>具体内容</th><th>科目</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="time-block">9:00 - 9:30</td><td class="task-desc">🎧 听力模拟</td><td>剑桥真题 1 套完整听力，严格考试流程，不暂停不回放</td><td><span class="tag tag-l">听力</span></td></tr>
+      <tr><td class="time-block">9:30 - 10:30</td><td class="task-desc">📖 阅读模拟</td><td>剑桥真题 3 篇，严格 60 分钟，模拟真实考试节奏</td><td><span class="tag tag-r">阅读</span></td></tr>
+      <tr><td class="time-block">10:30 - 11:30</td><td class="task-desc">✍️ 写作模拟</td><td>Task 1 (20min) + Task 2 (40min)，手写/打字均可</td><td><span class="tag tag-w">写作</span></td></tr>
+      <tr><td class="time-block">14:00 - 16:00</td><td class="task-desc">📊 深度复盘</td><td>对答案 + 错题分析：每道错题问自己"为什么错？下次怎么避免？"</td><td><span class="tag tag-all">通用</span></td></tr>
+      <tr><td class="time-block">16:00 - 17:00</td><td class="task-desc">🗣️ 口语强化</td><td>Part 2 话题卡练习 × 3 个，每个必须说满 2 分钟，录音复盘</td><td><span class="tag tag-s">口语</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="timetable">
+  <h3>📅 周日 · 弹性日</h3>
+  <table>
+    <thead>
+      <tr><th>时间</th><th>任务</th><th>具体内容</th><th>科目</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="time-block">上午</td><td class="task-desc">📝 查漏补缺</td><td>本周最弱科目专项训练 2 小时，或补本周未完成的任务</td><td><span class="tag tag-all">弱项</span></td></tr>
+      <tr><td class="time-block">下午</td><td class="task-desc">🧠 轻松输入</td><td>看英剧/纪录片（如 BBC Planet Earth）+ 英文播客，不强制做题</td><td><span class="tag tag-l">听力</span></td></tr>
+      <tr><td class="time-block">晚上</td><td class="task-desc">📋 周计划</td><td>回顾本周完成情况 + 写下周具体目标（精确到每天）</td><td><span class="tag tag-all">通用</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== Monthly Plans ===== -->
+<h2 class="section-title" id="monthly"><span class="icon">📅</span> 6 个月逐月详细计划</h2>
+<p style="margin-bottom:1rem;color:var(--text-light)">点击每个月展开查看 4 周具体安排。每天做什么都写清楚了 👇</p>
+
+<div class="accordion" id="monthlyAccordion">
+
+<!-- ===== Month 1 ===== -->
+<div class="accordion-item open">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="month-badge">第 1 月</span> 基础入门 & 题型熟悉</h3>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="accordion-body">
+    <p><strong>🎯 本月目标：</strong>词汇 6000→6500，熟悉全部 4 科题型和评分标准，做 1 套摸底真题。</p>
+    <p style="color:var(--text-light);margin-bottom:1rem;">月关键词：<em>适应题型、建立习惯、词汇积累</em></p>
+    <div class="week-grid">
+      <div class="week-card">
+        <h4>📅 第 1 周 · 入门摸底</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>听力 Section 1 题型介绍 + 剑桥 9-1-1 精听（个人信息填空）</td></tr>
+          <tr><td>二</td><td>阅读 Passage 1 体验 + 剑桥 9-1-1 不限时阅读 + 精读对答案</td></tr>
+          <tr><td>三</td><td>写作 Task 1 入门：看 Simon 视频第 1-3 集（线图），了解评分标准</td></tr>
+          <tr><td>四</td><td>口语 Part 1 话题练习：Hometown / Work-Study / Home，每题准备 2-3 句</td></tr>
+          <tr><td>五</td><td>听力 Section 2 题型介绍 + 剑桥 9-1-2 精听（地图/多选）</td></tr>
+          <tr><td>六</td><td>阅读 Passage 2 体验 + 不限时练习，学习定位关键词技巧</td></tr>
+          <tr><td>日</td><td><strong>📊 周末摸底</strong>：做半套真题（听力 Section 1-2 + 阅读 Passage 1-2），不计时</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 2 周 · 题型扩展</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>听力 Section 3 题型介绍 + 剑桥 9-2-3 精听（学术对话）</td></tr>
+          <tr><td>二</td><td>阅读 Passage 3 体验 + 学习判断题 T/F/NG 的区别和套路</td></tr>
+          <tr><td>三</td><td>写作 Task 2 入门：看 Simon 视频大作文部分，学习 4 段式结构</td></tr>
+          <tr><td>四</td><td>口语 Part 1 话题扩展：Hobbies / Food / Travel，尝试用原因+举例回答</td></tr>
+          <tr><td>五</td><td>听力 Section 4 题型介绍 + 剑桥 9-2-4 精听（学术讲座填空）</td></tr>
+          <tr><td>六</td><td>阅读 Heading 匹配题专项练习，任选 2 篇真题只做 Heading 题</td></tr>
+          <tr><td>日</td><td>整理本周所有生词到 Anki/Quizlet，复习 50 个旧词，听 BBC 6 Minute × 3 集</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 3 周 · 技巧初探</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>听力：剑桥 10-1 全套精听，重点训练预读题目 + 划关键词技巧</td></tr>
+          <tr><td>二</td><td>阅读：学习"平行阅读法"——读题→找关键词→定位→答题，不用通读全文</td></tr>
+          <tr><td>三</td><td>写作 Task 1：尝试写第一篇线图作文（剑桥 9-1），不限时，写完后看范文对比</td></tr>
+          <tr><td>四</td><td>口语 Part 1：扩展回答训练，每个回答包含直接答案+原因+举例+感受 4 层</td></tr>
+          <tr><td>五</td><td>听力：Section 1-2 倍速练习（1.2x），训练快速抓取信息</td></tr>
+          <tr><td>六</td><td>阅读：剑桥 10-1 完整 3 篇，限时 65 分钟（比考试多 5 分钟缓冲）</td></tr>
+          <tr><td>日</td><td>复习本周错题 + 写学习日志，标记最薄弱环节</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 4 周 · 首次模考</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>听力：剑桥 10-2 全套模拟练习（限时 30min），对答案 + 错题精听</td></tr>
+          <tr><td>二</td><td>阅读：剑桥 10-2 全套模拟（限时 60min），分析时间分配是否合理</td></tr>
+          <tr><td>三</td><td>写作：写第一篇大作文（Task 2），不限时，完成后自我评估字数是否够 250+</td></tr>
+          <tr><td>四</td><td>口语：Part 1 完整自测 30 个话题，找出最不熟练的 5 个，重点再练</td></tr>
+          <tr><td>五</td><td>语法强化：重点练习定语从句和状语从句，做《剑桥语法》对应单元</td></tr>
+          <tr><td>六</td><td><strong>📊 首次全科模考</strong>：剑桥 9-2 全套，听力+阅读+写作，不计时但尽量模拟</td></tr>
+          <tr><td>日</td><td>模考复盘日：逐题分析错因，记录各科分数作为起点基准，写下第 2 月具体目标</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Month 2 ===== -->
+<div class="accordion-item">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="month-badge">第 2 月</span> 核心技能积累</h3>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="accordion-body">
+    <p><strong>🎯 本月目标：</strong>词汇 6500→7500，听力 Section 1-2 正确率 80%+，阅读 1 篇限时 22min，写作能写出完整 Task 1 和简单 Task 2，口语 Part 1 流利应对。</p>
+    <p style="color:var(--text-light);margin-bottom:1rem;">月关键词：<em>精准度提升、限时训练、开始输出</em></p>
+    <div class="week-grid">
+      <div class="week-card">
+        <h4>📅 第 5 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力 Section 1 专项：剑桥 10-1 到 10-4 的 Section 1 集中训练，目标正确率 90%</td></tr>
+          <tr><td>二</td><td>📖 阅读 Passage 1 专项：连续做 4 篇 Passage 1，每篇限时 18min，练定位速度</td></tr>
+          <tr><td>三</td><td>✍️ Task 1 图表：学习柱状图模板，写 1 篇柱图作文，对照 Simon 9 分范文修改</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 1 新话题：Weather / Music / Sport，每个准备 3 句回答并录音</td></tr>
+          <tr><td>五</td><td>🎧 听力 Section 2 专项：地图题 + 匹配题集中训练（剑桥 10-11 的 Section 2）</td></tr>
+          <tr><td>六</td><td>📖 阅读：剑桥 10-3 全套限时 63min + 错题分析</td></tr>
+          <tr><td>日</td><td>📝 本周总结：整理错题本，标记反复出错的题型，下周重点突破</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 6 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力 Section 3 提升：精听剑桥 10-3-3 和 10-4-3，逐句听写，训练学术对话理解</td></tr>
+          <tr><td>二</td><td>📖 阅读 Passage 2 专项：连续做 4 篇 Passage 2，每篇限时 22min</td></tr>
+          <tr><td>三</td><td>✍️ Task 1 图表：学习饼图模板，写 1 篇饼图作文，关注数据对比表达</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 1 新话题：Family / Friends / Daily Routine，录音回听纠正发音</td></tr>
+          <tr><td>五</td><td>🎧 听力 Section 4 提升：剑桥 10-4-4 逐句听写，学术讲座抓主旨+细节</td></tr>
+          <tr><td>六</td><td>📖 阅读：剑桥 10-4 全套限时 62min，重点攻克选择题和信息匹配题</td></tr>
+          <tr><td>日</td><td>🎬 轻松日：看一部英文纪录片（如 Our Planet）+ 听 2 集英文播客学表达</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 7 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力全科：剑桥 11-1 全套限时 30min，Section 1-2 目标正确率 85%+</td></tr>
+          <tr><td>二</td><td>📖 阅读全科：剑桥 11-1 全套限时 60min，练平行阅读法提速</td></tr>
+          <tr><td>三</td><td>✍️ Task 1 图表：学习表格题 + 流程图模板，写 1 篇表格题</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 2 入门：了解 Part 2 规则，选 1 个"人物类"话题准备故事</td></tr>
+          <tr><td>五</td><td>🎧 听力弱项突破：根据前几周错题统计，最弱题型专项强化训练</td></tr>
+          <tr><td>六</td><td>✍️ Task 2 练习：写第一篇结构完整的大作文（4 段式，教育话题）</td></tr>
+          <tr><td>日</td><td>周复盘 + 写学习日志，检查本月目标完成度</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 8 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力：剑桥 11-2 全套限时 30min，尝试 1.2x 倍速练习</td></tr>
+          <tr><td>二</td><td>📖 阅读：剑桥 11-2 全套限时 60min，重点关注 Heading 题准确率</td></tr>
+          <tr><td>三</td><td>✍️ Task 1 + Task 2 连写：模拟考试 60min 内完成两篇作文</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 2 练习：准备"地点类"故事模板，练习说满 2 分钟</td></tr>
+          <tr><td>五</td><td>🎧 倍速听力挑战：剑桥 11-3 全套 1.2x 速度，训练快速反应</td></tr>
+          <tr><td>六</td><td><strong>📊 第 2 次全科模考</strong>：剑桥 11-4 全套，严格限时，作为阶段检测</td></tr>
+          <tr><td>日</td><td>模考复盘 + 对比第 1 次成绩，分析进步和不足，调整第 3 月计划</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Month 3 ===== -->
+<div class="accordion-item">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="month-badge">第 3 月</span> 技巧强化 & 输出突破</h3>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="accordion-body">
+    <p><strong>🎯 本月目标：</strong>词汇 7500→8000，听力 1.2x 无障碍，阅读稳定 6.5，写作框架熟练能按时完成，口语 Part 2 每个话题说满 90 秒。</p>
+    <p style="color:var(--text-light);margin-bottom:1rem;">月关键词：<em>技巧精进、速度提升、输出质量</em></p>
+    <div class="week-grid">
+      <div class="week-card">
+        <h4>📅 第 9 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力 Section 3 强化：剑桥 11-12 全部 Section 3 集中听写，抓对话观点转折</td></tr>
+          <tr><td>二</td><td>📖 阅读判断题专攻：从剑桥 9-12 中挑出所有 T/F/NG 题，集中练习找规律</td></tr>
+          <tr><td>三</td><td>✍️ Task 2 结构强化：看 Simon 大作文 10 篇范文，拆解每篇的论点组织方式</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 2 故事模板：准备"事件类"话题 2 个 + "物品类"话题 2 个，录音练习</td></tr>
+          <tr><td>五</td><td>🎧 听力 Section 4 强化：剑桥 11-12 全部 Section 4，训练速记和预判空格词性</td></tr>
+          <tr><td>六</td><td>📖 阅读：剑桥 12-1 全套限时 58min（提速 2 分钟），分析时间分配</td></tr>
+          <tr><td>日</td><td>整理 10 个 Task 2 高频话题的万能论点（教育/科技/环境/健康/犯罪…）</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 10 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力全科：剑桥 12-2 全套 1.2x，重点攻地图题和多选题</td></tr>
+          <tr><td>二</td><td>📖 阅读 Heading 匹配专攻：剑桥 9-12 中所有 Heading 题集中突破</td></tr>
+          <tr><td>三</td><td>✍️ Task 1 进阶：地图题 + 流程图写作，学习描述变化和流程的句式</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 3 入门：了解 Part 3 讨论题特点，练习回答"为什么"类问题</td></tr>
+          <tr><td>五</td><td>📖 阅读提速训练：连续做 3 篇 Passage 3（最难篇），每篇限时 20min</td></tr>
+          <tr><td>六</td><td>✍️ Task 2 实战：写 1 篇"科技类"大作文，严格 40min 计时</td></tr>
+          <tr><td>日</td><td>找人批改作文（淘宝/Grammarly/老师），收到反馈后重写一遍</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 11 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力：剑桥 12-3 全套 1.2x，错题逐句听写直到完全理解</td></tr>
+          <tr><td>二</td><td>📖 阅读：剑桥 12-3 全套 58min，分析 Passage 3 耗时过长的问题</td></tr>
+          <tr><td>三</td><td>✍️ Task 2 话题突破：写 1 篇"环境类"大作文，40min 计时</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 2+3 连练：选 1 个话题，Part 2 说 2min + Part 3 回答 3-4 题</td></tr>
+          <tr><td>五</td><td>🎧 听力弱项突破：统计本月错题类型，针对性强化最弱题型</td></tr>
+          <tr><td>六</td><td><strong>📊 第 3 次全科模考</strong>：剑桥 12-4 全套，听力阅读写作口语全真模拟</td></tr>
+          <tr><td>日</td><td>模考复盘 + 分析各科离 7.0 的差距，制定第 4 月强化方向</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 12 周 · 巩固调整</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>听力+阅读：剑桥 13-1 全套（听力 1.2x + 阅读 58min），检查进步幅度</td></tr>
+          <tr><td>二</td><td>写作 Task 1：全面复习 4 种图表类型，每种各写 1 篇简短提纲（10min/篇）</td></tr>
+          <tr><td>三</td><td>口语 Part 2：复习本月准备的所有话题，每个过 1 遍确保 2 分钟说满</td></tr>
+          <tr><td>四</td><td>听力倍速挑战：剑桥 13-2 全套 1.3x 速度训练</td></tr>
+          <tr><td>五</td><td>写作 Task 2：写 1 篇"教育类"大作文 40min，找批改反馈</td></tr>
+          <tr><td>六</td><td>阅读：剑桥 13-2 全套 58min，练习先做 Passage 1-2，最后做 Passage 3 的策略</td></tr>
+          <tr><td>日</td><td>月度综合复盘 + 报名雅思考试（建议选第 5-6 月之间的日期）</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Month 4 ===== -->
+<div class="accordion-item">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="month-badge">第 4 月</span> 高强度输出 & 分数爬坡</h3>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="accordion-body">
+    <p><strong>🎯 本月目标：</strong>听力+阅读稳定 6.5-7.0，写作能做到结构完整、论据充分，口语 Part 2 流利 2 分钟，Part 3 能展开讨论。每周 1 次全科模考。</p>
+    <p style="color:var(--text-light);margin-bottom:1rem;">月关键词：<em>高强度输出、模考检验、精准提分</em></p>
+    <div class="week-grid">
+      <div class="week-card">
+        <h4>📅 第 13 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 13-3 全套 1.2x + 逐题精听，目标正确率 28/40 (7.0)</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 13-3 全套 58min，目标正确率 30/40 (7.0)</td></tr>
+          <tr><td>三</td><td>✍️ Task 2 话题突破：写 1 篇"社会类"大作文（老龄化/城市化），40min</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 2 全套：人物/地点/事件/物品 4 类各练 1 题，录音 + 自评</td></tr>
+          <tr><td>五</td><td>🎧 听力 Section 3-4 强化：剑桥 13-14 全部 Section 3+4 集中听写</td></tr>
+          <tr><td>六</td><td><strong>📊 全科模考</strong>：剑桥 13-4 全套仿真实战，计分分析</td></tr>
+          <tr><td>日</td><td>模考复盘 + 弱项统计：列出每个科目错题类型分布，找出最大扣分项</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 14 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 14-1 全套 1.2x，特别注意 Section 4 学术词汇拼写</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 14-1 全套 56min，练习先扫读题目再读文章的节奏</td></tr>
+          <tr><td>三</td><td>✍️ Task 2 话题突破：写 1 篇"健康/医疗"大作文，积累医学术语表达</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 3 深度训练：选 3 个话题，每个话题回答 3-4 个追问</td></tr>
+          <tr><td>五</td><td>📖 阅读弱项突破：本月最大扣分题型 × 2 套专项练习</td></tr>
+          <tr><td>六</td><td>✍️ Task 1 + Task 2 连写 60min 实战，训练时间分配（20min + 40min）</td></tr>
+          <tr><td>日</td><td>找外教/陪练做 1 次完整口语模拟（italki/Cambly），获取专业反馈</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 15 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 14-2 全套 1.2x，目标 30/40 (7.0) 以上</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 14-2 全套 56min，练难度分配策略：Passage 1(15min)→P2(20min)→P3(21min)</td></tr>
+          <tr><td>三</td><td>✍️ Task 2 话题突破：写 1 篇"媒体/广告"大作文，40min</td></tr>
+          <tr><td>四</td><td>🗣️ 口语 Part 2 盲抽练习：随机抽题卡，1 分钟准备后即时说 2 分钟</td></tr>
+          <tr><td>五</td><td>✍️ Task 1 全面复习：线图/柱图/饼图/表格/地图/流程，各写 1 段核心段落</td></tr>
+          <tr><td>六</td><td><strong>📊 全科模考</strong>：剑桥 14-3 全套仿真实战</td></tr>
+          <tr><td>日</td><td>模考复盘 + 重点分析写作和口语的得分瓶颈</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 16 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 14-4 全套 1.3x 速度挑战</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 14-4 全套 55min（接近极限速度训练）</td></tr>
+          <tr><td>三</td><td>✍️ Task 2 话题突破：写 1 篇"全球化/文化"大作文</td></tr>
+          <tr><td>四</td><td>🗣️ 再约外教/陪练做 1 次完整口语模考，对比第 14 周进步</td></tr>
+          <tr><td>五</td><td>全科弱项强化日：根据统计数据，每个科目最弱题型各练 1 小时</td></tr>
+          <tr><td>六</td><td><strong>📊 第 4 次全科模考</strong>：剑桥 15-1 全套，作为阶段大考</td></tr>
+          <tr><td>日</td><td>成绩分析 + 调整第 5 月冲刺策略，确定最终考试日期</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Month 5 ===== -->
+<div class="accordion-item">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="month-badge">第 5 月</span> 模考冲刺 & 查漏补缺</h3>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="accordion-body">
+    <p><strong>🎯 本月目标：</strong>全科模考分数稳定在 7.0 以上，听力+阅读冲击 7.5，写作冲击 6.5+，口语冲击 7.0。每周 2 次完整模考，高强度实战。</p>
+    <p style="color:var(--text-light);margin-bottom:1rem;">月关键词：<em>模考大赛、错题清零、状态打磨</em></p>
+    <div class="week-grid">
+      <div class="week-card">
+        <h4>📅 第 17 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 15-2 全套 1.3x + 精听错题，目标正确率 30+/40</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 15-2 全套 55min，目标正确率 32+/40 (7.5)</td></tr>
+          <tr><td>三</td><td><strong>📊 周中模考 1</strong>：剑桥 15-3 全套（听力+阅读+写作），严格按照考试时间</td></tr>
+          <tr><td>四</td><td>模考复盘 + 写作批改 + 错题分类统计</td></tr>
+          <tr><td>五</td><td>🗣️ 口语完整模考：Part 1 + Part 2 + Part 3 全程录音，自评流利度和词汇</td></tr>
+          <tr><td>六</td><td><strong>📊 周末模考 2</strong>：剑桥 15-4 全套（听力+阅读+写作+口语）</td></tr>
+          <tr><td>日</td><td>全面复盘：对比两次模考，找出反复出错的"顽疾"，制定清除计划</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 18 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 16-1 全套 1.2x（接近考试速度），精听弱项 Section</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 16-1 全套 55min，重点检查 Passage 3 正确率</td></tr>
+          <tr><td>三</td><td><strong>📊 周中模考 1</strong>：剑桥 16-2 全套，注意心理状态（紧张感模拟）</td></tr>
+          <tr><td>四</td><td>模考复盘 + 写作找专业批改（第 2 次），获取评分式反馈</td></tr>
+          <tr><td>五</td><td>🗣️ 口语重点突破：Part 3 深入讨论训练，练习"观点→原因→例证→结论"表达链</td></tr>
+          <tr><td>六</td><td><strong>📊 周末模考 2</strong>：剑桥 16-3 全套</td></tr>
+          <tr><td>日</td><td>全面复盘 + 统计本月所有模考分数，画趋势图看进步轨迹</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 19 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 16-4 全套 1.2x，集中攻克地图题（中国考生弱项）</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 16-4 全套 55min，练习信息匹配题的快速定位</td></tr>
+          <tr><td>三</td><td><strong>📊 周中模考 1</strong>：剑桥 17-1 全套（使用最新真题，更接近真实难度）</td></tr>
+          <tr><td>四</td><td>复盘 + 写作针对性批改（第 3 次，找不同的人批改获取多维反馈）</td></tr>
+          <tr><td>五</td><td>🗣️ 口语盲抽训练：雅思哥 App 随机抽 3 个 Part 2 话题卡，即时作答</td></tr>
+          <tr><td>六</td><td><strong>📊 周末模考 2</strong>：剑桥 17-2 全套</td></tr>
+          <tr><td>日</td><td>全面复盘 + 每个科目列出"绝对不能错"的题型清单</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 20 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 17-3 全套 1.2x，目标正确率 32+/40 (7.5)</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 17-3 全套 53min，限时压缩训练</td></tr>
+          <tr><td>三</td><td><strong>📊 周中模考 1</strong>：剑桥 17-4 全套</td></tr>
+          <tr><td>四</td><td>复盘 + 写作：整理自己的万能句型库（开头/过渡/结尾各 5 句）</td></tr>
+          <tr><td>五</td><td>🗣️ 口语最终检测：找外教做完整口语模考，目标评分 7.0</td></tr>
+          <tr><td>六</td><td><strong>📊 周末模考 2</strong>：剑桥 18-1 全套，考前最后一次全真模拟</td></tr>
+          <tr><td>日</td><td>第 5 月全部模考成绩汇总，评估实际水平与 7.0 的差距，制定最后冲刺策略</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Month 6 ===== -->
+<div class="accordion-item">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="month-badge">第 6 月</span> 考前冲刺 & 状态调整</h3>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="accordion-body">
+    <p><strong>🎯 本月目标：</strong>保持手感，查漏补缺，调整心态和生物钟，自信上考场。考前 1 周减量保持，考前 1 天彻底放松。</p>
+    <p style="color:var(--text-light);margin-bottom:1rem;">月关键词：<em>保持手感、心态管理、万无一失</em></p>
+    <div class="week-grid">
+      <div class="week-card">
+        <h4>📅 第 21 周 · 考前 3 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 18-2 全套 1.2x + 精听错题</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 18-2 全套 55min + 错题深度分析</td></tr>
+          <tr><td>三</td><td><strong>📊 模考</strong>：剑桥 18-3 全套</td></tr>
+          <tr><td>四</td><td>复盘 + 写作修改 + 口语 Part 2 全部话题过一遍</td></tr>
+          <tr><td>五</td><td>听力+阅读各 1 套轻度练习，不追求难度，保持手感</td></tr>
+          <tr><td>六</td><td>口语：重点复习 Part 1 高频题 + Part 3 答题框架</td></tr>
+          <tr><td>日</td><td>整理考前清单：证件、准考证、考试地点、交通路线、考试流程再确认</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 22 周 · 考前 2 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td>🎧 听力剑桥 18-4 全套 1.2x</td></tr>
+          <tr><td>二</td><td>📖 阅读剑桥 18-4 全套 55min</td></tr>
+          <tr><td>三</td><td><strong>📊 倒数第 2 次模考</strong>：剑桥 19-1 全套（最新真题）</td></tr>
+          <tr><td>四</td><td>复盘 + 不再看新题，只复习错题本上的题目</td></tr>
+          <tr><td>五</td><td>听力保持：剑桥 19-2 听力 1.2x 轻度练习，不做全科</td></tr>
+          <tr><td>六</td><td>阅读保持：剑桥 19-2 阅读 1 套，不追求速度，追求正确率</td></tr>
+          <tr><td>日</td><td>口语：最后过一遍当季 Part 2 完整题库，确保每个话题有故事可讲</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 23 周 · 考前 1 周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>一</td><td><strong>📊 最后一次全科模考</strong>：剑桥 19-2 全套，轻声对自己说"这只是练习"</td></tr>
+          <tr><td>二</td><td>复盘 + 庆祝：你已经完成 6 个月训练，无论结果如何，你已经赢了自己</td></tr>
+          <tr><td>三</td><td>听力+阅读：各做 1 套轻度练习，保持手感即可</td></tr>
+          <tr><td>四</td><td>写作：只看自己积累的句型库和范文，不再写新作文</td></tr>
+          <tr><td>五</td><td>口语：自己对着镜子说 30 分钟，保持口腔肌肉记忆</td></tr>
+          <tr><td>六</td><td>💤 轻量复习：只看错题本 + 单词闪卡，晚上早点休息</td></tr>
+          <tr><td>日</td><td>检查考试物品：身份证/护照、准考证、铅笔×3、橡皮、水、巧克力</td></tr>
+        </table>
+      </div>
+      <div class="week-card">
+        <h4>📅 第 24 周 · 考试周</h4>
+        <table>
+          <tr><th>日</th><th>核心任务</th></tr>
+          <tr><td>考前 2 天</td><td>🛌 轻量输入：听 BBC 6 Minute 保持语感，看 1 篇范文，不做新题</td></tr>
+          <tr><td>考前 1 天</td><td>🧘 彻底放松：散步/运动/看电影，不碰真题。晚上 9 点准备好所有物品</td></tr>
+          <tr><td>考试当天</td><td>🌅 6:30 起床，吃高蛋白早餐，8:00 到达考场。深呼吸，相信 6 个月的积累</td></tr>
+          <tr><td>考后</td><td>🎉 庆祝完成！13 天后查分，然后来找我报告好消息 🎊</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- accordion end -->
+
+<!-- ===== Skills Section ===== -->
+<h2 class="section-title" id="skills"><span class="icon">🎯</span> 四科核心训练方法</h2>
+<div class="skills-container">
+  <div class="skill-tabs">
+    <button class="skill-tab active" onclick="switchSkillTab(0)">🎧 听力 Listening</button>
+    <button class="skill-tab" onclick="switchSkillTab(1)">📖 阅读 Reading</button>
+    <button class="skill-tab" onclick="switchSkillTab(2)">✍️ 写作 Writing</button>
+    <button class="skill-tab" onclick="switchSkillTab(3)">🗣️ 口语 Speaking</button>
+  </div>
+  <div class="skill-panel active">
+    <h4>🎧 听力训练方法</h4>
+    <p><strong>雅思听力 40 题，4 个 Section，30 分钟 + 10 分钟誊写。目标 7.0 = 答对 30 题。</strong></p>
+    <ol>
+      <li><strong>精听三步法：</strong>第 1 遍正常做题 → 第 2 遍逐句听写（可以暂停）→ 第 3 遍对照原文跟读。每套精听约 2 小时，但效果是泛听的 5 倍。</li>
+      <li><strong>倍速训练法：</strong>从 1.0x 开始，每 2 周提高 0.1x，目标是 1.2x-1.3x 无障碍。考场 1.0x 速度会感觉"很慢"。</li>
+      <li><strong>预读题目技巧：</strong>每一 Section 开始前有 30 秒读题时间，必须用来划关键词（名词、数字、专有名词），预判空格词性。</li>
+      <li><strong>常见陷阱：</strong>同义替换（题目用 cheap，录音用 inexpensive）、干扰信息（先说不选的后说选的）、拼写错误（大小写、单复数）。</li>
+      <li><strong>Section 策略：</strong>
+        <ul>
+          <li>Section 1：个人信息填空，难度最低，目标是全对（10/10）</li>
+          <li>Section 2：日常生活独白，注意地图题的方向描述词</li>
+          <li>Section 3：学术对话，抓观点转折词（but, however, actually）</li>
+          <li>Section 4：学术讲座，预判空格词性 + 速记关键信息</li>
+        </ul>
+      </li>
+      <li><strong>每日必做：</strong>听 BBC 6 Minute English 泛听 + 1 个 Section 精听。</li>
+    </ol>
+  </div>
+  <div class="skill-panel">
+    <h4>📖 阅读训练方法</h4>
+    <p><strong>雅思阅读 40 题，3 篇 Passage，60 分钟。目标 7.5 = 答对 33 题。</strong></p>
+    <ol>
+      <li><strong>平行阅读法（核心技巧）：</strong>先读所有题目 → 划关键词 → 带着问题去文章定位 → 找到一处答一题。不需要通读全文！做题顺序：先做细节题（填空、判断、选择），后做主旨题（Heading、段落匹配）。</li>
+      <li><strong>时间分配：</strong>Passage 1（最简单）15min → Passage 2（中等）20min → Passage 3（最难）25min。严格按此节奏，超时就跳。</li>
+      <li><strong>T/F/NG 判断口诀：</strong>
+        <ul>
+          <li>T (True)：题目与原文表述一致（同义替换）</li>
+          <li>F (False)：题目与原文矛盾（反义词/否定）</li>
+          <li>NG (Not Given)：原文根本没说这个信息，或信息不完整无法推断（最常见错误是把 NG 判成 F）</li>
+        </ul>
+      </li>
+      <li><strong>Heading 题技巧：</strong>读段落首尾两句（通常主题句所在），找同义替换选项。排除法：如果选项中出现段落没提的具体细节，排除。</li>
+      <li><strong>速读训练：</strong>每天快速阅读 1 篇 The Economist 短文（800 字），限 8 分钟读完并说出主旨。训练眼睛扫读速度。</li>
+      <li><strong>错题复盘比做题更重要：</strong>每道错题问自己 3 个问题——为什么没找到？被什么干扰了？下次怎么避免？</li>
+    </ol>
+  </div>
+  <div class="skill-panel">
+    <h4>✍️ 写作训练方法</h4>
+    <p><strong>Task 1（150 字，20 分钟）+ Task 2（250 字，40 分钟）。目标 W 6.5。</strong></p>
+    <ol>
+      <li><strong>Task 1 四大图表模板：</strong>
+        <ul>
+          <li>线图 → 描述趋势（上升/下降/波动/平稳）+ 对比（A 比 B 增长更快）</li>
+          <li>柱图 → 比较不同类别的大小差异</li>
+          <li>饼图 → 描述占比（最大的/第二大的/最小的）</li>
+          <li>表格/地图/流程图 → 按时间或空间顺序描述变化</li>
+        </ul>
+        每种图表背熟 1 个开头段 + 3 个描述句 + 1 个总结句。
+      </li>
+      <li><strong>Task 2 四段式结构：</strong>
+        <ul>
+          <li>引言段（40 词）：改写题目 + 表明立场</li>
+          <li>主体段 1（80 词）：论点 1 + 解释 + 举例</li>
+          <li>主体段 2（80 词）：论点 2 + 解释 + 举例</li>
+          <li>结论段（50 词）：总结观点 + 重申立场</li>
+        </ul>
+      </li>
+      <li><strong>提分关键：</strong>同义替换（不要重复题目原词）、复杂句式（每段至少 1 句复合句）、逻辑连接词（However, Furthermore, In contrast, As a result）。</li>
+      <li><strong>10 大高频话题：</strong>教育、科技、环境、健康、犯罪、全球化、媒体、政府、文化、社会。每个话题准备 3-5 个观点 + 对应英文表达。</li>
+      <li><strong>必须找人批改：</strong>自己看不出的问题包括——中式英语、逻辑跳跃、Task Response 偏题。至少 3 篇获得专业批改并重写。</li>
+    </ol>
+  </div>
+  <div class="skill-panel">
+    <h4>🗣️ 口语训练方法</h4>
+    <p><strong>Part 1（4-5 分钟，日常问答）+ Part 2（3-4 分钟，独立独白）+ Part 3（4-5 分钟，深入讨论）。目标 S 7.0。</strong></p>
+    <ol>
+      <li><strong>Part 1 四层回答法：</strong>每个问题用 3-4 句回答。结构：直接答案 → 原因 → 举例 → 感受。例如："Do you like music? → Yes, I'm a big fan of music. (答案) I find it helps me relax after a long day. (原因) For instance, I listen to jazz every evening. (举例) It just puts me in a good mood. (感受)"</li>
+      <li><strong>Part 2 故事模板法：</strong>把所有 Part 2 话题归为 4 大类，每类准备 2 个万能故事模板：
+        <ul>
+          <li>人物类：描述一个敬佩的人 / 有趣的邻居 / 好老师（共用 1 个故事骨架）</li>
+          <li>地点类：描述一个喜欢的城市 / 安静的地方 / 常去的咖啡馆</li>
+          <li>事件类：描述一次难忘的旅行 / 生日派对 / 你帮助别人的经历</li>
+          <li>物品类：描述一本喜欢的书 / 一件礼物 / 一个有用的 App</li>
+        </ul>
+      </li>
+      <li><strong>Part 3 讨论模式：</strong>表达观点 → 给出理由 → 举例子 → 考虑反面观点 → 总结。重点是展示你能用英语进行抽象讨论。</li>
+      <li><strong>评分标准自查：</strong>
+        <ul>
+          <li>流利度与连贯性（Fluency）：无长时间停顿，使用连接词自然过渡</li>
+          <li>词汇（Lexical Resource）：使用 less common words（如用 "exhilarating" 替代 "exciting"）</li>
+          <li>语法（Grammar）：正确使用多种时态和复杂句</li>
+          <li>发音（Pronunciation）：重音、语调、连读，不是口音问题</li>
+        </ul>
+      </li>
+      <li><strong>每日必做：</strong>录音自练 15 分钟 + 回听纠正。每周至少 1 次与外教/陪练的实战对话。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===== Resources ===== -->
+<h2 class="section-title" id="resources"><span class="icon">📚</span> 推荐资源清单</h2>
+<div style="overflow-x:auto;">
+<table class="resource-table">
+  <thead>
+    <tr><th>类别</th><th>资源名称</th><th>用途</th><th>推荐度</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>📝 真题</td><td>《剑桥雅思真题 9-19》</td><td>唯一官方真题，备考核心材料。9-14 用于练习，15-19 用于模考</td><td class="stars">⭐⭐⭐⭐⭐ 必买</td></tr>
+    <tr><td>📝 词汇</td><td>《雅思词汇胜经》/ 墨墨背单词 App</td><td>系统背学术词汇，App 利用碎片时间复习</td><td class="stars">⭐⭐⭐⭐⭐ 必用</td></tr>
+    <tr><td>🎧 听力</td><td>BBC 6 Minute English / TED Talks</td><td>每日泛听，培养语感和英音适应</td><td class="stars">⭐⭐⭐⭐⭐ 免费</td></tr>
+    <tr><td>🎧 听力</td><td>IELTS Liz (YouTube)</td><td>各题型技巧讲解，清晰易懂</td><td class="stars">⭐⭐⭐⭐ 免费</td></tr>
+    <tr><td>🎧 听力</td><td>E2 IELTS (YouTube)</td><td>听力+阅读技巧，适合入门</td><td class="stars">⭐⭐⭐⭐ 免费</td></tr>
+    <tr><td>📖 阅读</td><td>《雅思阅读真经总纲》刘洪波</td><td>平行阅读法详解，中国考生阅读提分利器</td><td class="stars">⭐⭐⭐⭐⭐ 推荐</td></tr>
+    <tr><td>📖 阅读</td><td>The Economist / The Guardian</td><td>每日阅读 1 篇 800 字短文，训练速度和学术词汇</td><td class="stars">⭐⭐⭐⭐ 免费</td></tr>
+    <tr><td>✍️ 写作</td><td>Simon IELTS (网站 ielts-simon.com)</td><td>前雅思考官，9 分范文+视频，写作必看</td><td class="stars">⭐⭐⭐⭐⭐ 必看</td></tr>
+    <tr><td>✍️ 写作</td><td>《顾家北手把手教你雅思写作》</td><td>中式英语纠错 + 地道表达，适合自学</td><td class="stars">⭐⭐⭐⭐ 推荐</td></tr>
+    <tr><td>✍️ 写作</td><td>Grammarly Premium</td><td>语法检查 + 风格建议，辅助自改</td><td class="stars">⭐⭐⭐ 可选</td></tr>
+    <tr><td>🗣️ 口语</td><td>雅思哥 App</td><td>当季口语题库（免费），考生回忆实时更新</td><td class="stars">⭐⭐⭐⭐⭐ 必用</td></tr>
+    <tr><td>🗣️ 口语</td><td>italki / Cambly</td><td>找外教/陪练进行口语实战，30min/次即可</td><td class="stars">⭐⭐⭐⭐ 付费</td></tr>
+    <tr><td>📖 语法</td><td>《剑桥雅思语法精讲精练》</td><td>系统补语法，重点做完从句章节</td><td class="stars">⭐⭐⭐⭐ 推荐</td></tr>
+    <tr><td>🧠 记忆</td><td>Anki / Quizlet</td><td>自制生词闪卡，间隔重复记忆法</td><td class="stars">⭐⭐⭐⭐⭐ 免费</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== Progress Tracker ===== -->
+<h2 class="section-title" id="progress"><span class="icon">✅</span> 每日完成度追踪</h2>
+<section class="progress-section">
+  <p>勾选每天完成的任务，数据自动保存在浏览器中 📌</p>
+  <div class="progress-stats">
+    <div class="progress-stat">
+      <div class="num" id="totalDays">0</div>
+      <div class="label">累计打卡天数</div>
+    </div>
+    <div class="progress-stat">
+      <div class="num" id="completionRate">0%</div>
+      <div class="label">整体完成率</div>
+    </div>
+    <div class="progress-stat">
+      <div class="num" id="currentStreak">0</div>
+      <div class="label">连续打卡天数</div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-inner" id="progressBar"></div>
+  </div>
+
+  <h4 style="margin-bottom:0.5rem;">✅ 每日必做（3 项核心，雷打不动）</h4>
+  <ul class="task-checklist" id="dailyChecklistCore">
+    <li><input type="checkbox" data-key="vocab" onchange="updateProgress()"><span>🔄 背单词 50 个 + 复习旧词 + 语法小练（早晨段，1.5h）</span></li>
+    <li><input type="checkbox" data-key="review" onchange="updateProgress()"><span>🔁 晚间复盘：复习错题 + 外刊阅读 + 学习日志（晚间段，1h）</span></li>
+    <li><input type="checkbox" data-key="warmup" onchange="updateProgress()"><span>🎧 耳朵预热：BBC 6 Minute / TED-Ed 泛听（每天至少 1 集）</span></li>
+  </ul>
+
+  <h4 style="margin-bottom:0.5rem;margin-top:1.2rem;">🎯 今日主打科目（按星期轮换，完成今日对应的 1 项即可）</h4>
+  <p style="font-size:0.8rem;color:var(--text-light);margin-bottom:0.5rem;">今天星期几，就勾哪一项。不用全部勾完！</p>
+  <ul class="task-checklist" id="dailyChecklistFocus">
+    <li><input type="checkbox" data-key="focus-mon" onchange="updateProgress()"><span>📅 周一 🎧 听力日：精听 1 个 Section + 同题型 2 篇泛听（2h）+ 口语自练 20min</span></li>
+    <li><input type="checkbox" data-key="focus-tue" onchange="updateProgress()"><span>📅 周二 📖 阅读日：真题 2 篇精做+精读 + 定位技巧训练（2h）+ 外刊积累 30min</span></li>
+    <li><input type="checkbox" data-key="focus-wed" onchange="updateProgress()"><span>📅 周三 ✍️ 写作日：真题写作 1 篇 + 对照范文修改 + 话题素材整理（2h）+ 泛听保持</span></li>
+    <li><input type="checkbox" data-key="focus-thu" onchange="updateProgress()"><span>📅 周四 🗣️ 口语日：Part 2 ×3 录音+回听 + Part 3 讨论自练 + 发音纠正（2h）+ 阅读 1 篇</span></li>
+    <li><input type="checkbox" data-key="focus-fri" onchange="updateProgress()"><span>📅 周五 🎯 综合日：听力+阅读联训 1 套 + 本周最弱科目专项突破（2h）</span></li>
+    <li><input type="checkbox" data-key="focus-sat" onchange="updateProgress()"><span>📅 周六 📊 模考日：全科模考 2.5h + 深度复盘 2h + 下午口语模考</span></li>
+    <li><input type="checkbox" data-key="focus-sun" onchange="updateProgress()"><span>📅 周日 🧘 弹性日：查漏补缺 + 轻松输入 + 写下周计划（自由安排）</span></li>
+  </ul>
+
+  <button class="reset-btn" onclick="resetProgress()">🔄 重置所有进度</button>
+  <span style="font-size:0.8rem;color:var(--text-light);margin-left:0.5rem;">（数据仅保存在当前浏览器）</span>
+</section>
+
+</div><!-- container -->
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
+
+<script>
+// ===== Accordion =====
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  item.classList.toggle('open');
+}
+
+// ===== Skill Tabs =====
+function switchSkillTab(idx) {
+  document.querySelectorAll('.skill-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+  document.querySelectorAll('.skill-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+
+// ===== Theme Toggle =====
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  const btn = document.querySelector('.theme-btn');
+  const isDark = document.body.classList.contains('dark');
+  btn.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('ielts-theme', isDark ? 'dark' : 'light');
+}
+
+// Restore theme
+(function() {
+  if (localStorage.getItem('ielts-theme') === 'dark') {
+    document.body.classList.add('dark');
+    document.querySelector('.theme-btn').textContent = '☀️';
+  }
+})();
+
+// ===== Back to Top =====
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('visible', window.scrollY > 500);
+});
+
+// ===== Nav Active State =====
+document.querySelectorAll('#navbar a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('#navbar a').forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// ===== Progress Tracker =====
+const CORE_KEYS = ['vocab', 'review', 'warmup'];
+const FOCUS_KEYS = ['focus-mon','focus-tue','focus-wed','focus-thu','focus-fri','focus-sat','focus-sun'];
+const DAY_NAMES = ['周日','周一','周二','周三','周四','周五','周六'];
+const DAY_LABELS = {
+  0: '🧘 弹性日', 1: '🎧 听力日', 2: '📖 阅读日',
+  3: '✍️ 写作日', 4: '🗣️ 口语日', 5: '🎯 综合/弱项日', 6: '📊 模考日'
+};
+
+// Highlight today
+(function() {
+  const today = new Date().getDay(); // 0=Sun, 1=Mon, ...
+  document.getElementById('todayName').textContent = DAY_LABELS[today];
+  // Highlight today's row
+  const rowIds = ['row-sun','row-mon','row-tue','row-wed','row-thu','row-fri','row-sat'];
+  const todayRow = document.getElementById(rowIds[today]);
+  if (todayRow) todayRow.style.background = 'rgba(245,166,35,0.12)';
+  // Highlight today's focus checkbox
+  const todayFocusKey = FOCUS_KEYS[today === 0 ? 6 : today - 1]; // Adjust: Sun=index6, Mon=0...
+  const todayFocusKeys = ['focus-sun','focus-mon','focus-tue','focus-wed','focus-thu','focus-fri','focus-sat'];
+  const focusItem = document.querySelector(`[data-key="${todayFocusKeys[today]}"]`);
+  if (focusItem) focusItem.parentElement.style.background = 'rgba(245,166,35,0.08)';
+})();
+
+function loadProgress() {
+  [...CORE_KEYS, ...FOCUS_KEYS].forEach(key => {
+    const el = document.querySelector(`input[data-key="${key}"]`);
+    if (el) el.checked = localStorage.getItem(`ielts-daily-${key}`) === 'true';
+  });
+  updateProgress();
+}
+
+function updateProgress() {
+  // Count core items done
+  let coreDone = 0;
+  CORE_KEYS.forEach(key => {
+    const el = document.querySelector(`input[data-key="${key}"]`);
+    const checked = el && el.checked;
+    localStorage.setItem(`ielts-daily-${key}`, checked ? 'true' : 'false');
+    if (checked) coreDone++;
+  });
+
+  // Count today's focus item
+  const today = new Date().getDay();
+  const todayFocusKeys = ['focus-sun','focus-mon','focus-tue','focus-wed','focus-thu','focus-fri','focus-sat'];
+  const todayKey = todayFocusKeys[today];
+  const focusEl = document.querySelector(`input[data-key="${todayKey}"]`);
+  const focusDone = focusEl && focusEl.checked;
+  localStorage.setItem(`ielts-daily-${todayKey}`, focusDone ? 'true' : 'false');
+
+  // Progress: core (3 items = 60%) + today's focus (40%)
+  const totalItems = 4;
+  const doneItems = coreDone + (focusDone ? 1 : 0);
+  const pct = Math.round(doneItems / totalItems * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('completionRate').textContent = pct + '%';
+
+  const allDone = coreDone === 3 && focusDone;
+  document.getElementById('currentStreak').textContent = allDone ? '🔥 今日全勤' : '进行中';
+
+  if (allDone) {
+    const storedDone = parseInt(localStorage.getItem('ielts-total-done') || '0');
+    localStorage.setItem('ielts-total-done', storedDone + 1);
+    document.getElementById('totalDays').textContent = storedDone + 1;
+  } else {
+    document.getElementById('totalDays').textContent = localStorage.getItem('ielts-total-done') || '0';
+  }
+}
+
+function resetProgress() {
+  [...CORE_KEYS, ...FOCUS_KEYS].forEach(key => {
+    localStorage.removeItem(`ielts-daily-${key}`);
+    const el = document.querySelector(`input[data-key="${key}"]`);
+    if (el) el.checked = false;
+  });
+  updateProgress();
+}
+
+// Reset daily checkboxes at midnight (new day = fresh checkboxes)
+function setupDailyReset() {
+  const today = new Date().toDateString();
+  const stored = localStorage.getItem('ielts-last-reset-date');
+  if (stored !== today) {
+    [...CORE_KEYS, ...FOCUS_KEYS].forEach(key => {
+      localStorage.setItem(`ielts-daily-${key}`, 'false');
+      const el = document.querySelector(`input[data-key="${key}"]`);
+      if (el) el.checked = false;
+    });
+    localStorage.setItem('ielts-last-reset-date', today);
+  }
+}
+
+setupDailyReset();
+loadProgress();
+
+// ===== Auto-open first accordion item on desktop =====
+if (window.innerWidth > 768) {
+  // Already has 'open' class on month 1 in HTML
+}
+
+console.log('📖 雅思备考计划已就绪！');
+console.log('🎯 目标：6个月 7.0 (Academic)');
+console.log('💪 每天坚持，你会看到自己的进步！');
+console.log('📌 所有进度数据保存在浏览器 localStorage 中');
+</script>
+
+</body>
+</html>

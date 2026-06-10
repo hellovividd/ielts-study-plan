@@ -1,0 +1,17 @@
+# Personal documents
+*.pdf
+docs/
+clipboard_history/
+
+# Claude
+.claude/plans/
+.claude/scheduled_tasks.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
